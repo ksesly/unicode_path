@@ -37,13 +37,23 @@
 // •error: sum of bridges lengths is too bigif the sum of the lengths of all bridges inthe file exceeds INT_MAX
 
 #include "../inc/pathfinder.h"
+#include <stdio.h>
 
 
 int main(int argc, char* argv[]) {
-    mx_file_errors(argc, argv);
-    //check for the command line errors
-    mx_printstr("hello");
-    
+    //mx_printstr("hello");
+    char* filename = argv[1];
+    //mx_printint(1);
+    char *path_file = mx_file_to_str(filename);
+    //mx_printint(2);
+    printf("%s", path_file);
+    //mx_printint(3);
+    mx_file_errors(argc, argv, path_file);
+    //nu kak by blyat` nado otkrivat` file, ksush..
+    int islands = mx_return_number_of_islands(argv[1], path_file);
+    mx_printchar('\n');
+    mx_printint(islands);
+
     return 0;
 }
 
