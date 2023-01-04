@@ -2,24 +2,25 @@
 
 char *mx_file_to_str(const char *file) {
     int temp = open(file, O_RDONLY);
-    if (!temp) {
-        close(temp);
+    if (temp == -1) {
         return NULL; 
     }
     int size = 0;
     char buf;
-    while (read(temp, &buf, 1) > 0) {
+    while (read(temp, &buf, 1)) 
         size++;
-    }
     close(temp);
-    if (size == 0)
-        return NULL;
-    char *temp_word = mx_strnew(size);
     temp = open(file, O_RDONLY);
+    if (temp == -1) {
+        return NULL; 
+    }
+    char *temp_word = mx_strnew(size);
+    if (!temp_word) 
+        return NULL;
     read(temp, temp_word, size);
-    temp_word[size++] = '\0';
     return temp_word;
 }
+
 
 // int main (int argc, char *argv[]) {
 //     if (argc == 1)

@@ -40,9 +40,7 @@
 
 
 int main(int argc, char* argv[]) {
-    mx_argument_line_error(argc);
-    mx_filename_error(&argv[1]);
-
+    mx_file_errors(argc, argv);
     //check for the command line errors
     mx_printstr("hello");
     
