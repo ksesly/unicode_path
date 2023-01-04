@@ -11,7 +11,8 @@ char** get_islands(char *str_file, int isl_nbr) {
             str[i] = ' ';
         }
     }
-
+   
+   
     char *str_no_spaces = mx_del_extra_spaces(str);
     char **temp = mx_strsplit(str_no_spaces, ' ');
     while (temp[lines_count]) {
