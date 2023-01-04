@@ -1,34 +1,36 @@
 #include "../inc/libmx.h"
 
-char *mx_itoa(int number) {
-    char *word = NULL;
-    int size = 0;
-    long long temp;
+char *mx_itoa(long long number) {
+    char *result = NULL;
+
     if (number == 0) {
-        word = mx_strnew(1);
-        word[0] = '0';
-        return word;
+        result = mx_strnew(1);
+        result[0] = '0';
+        return result;
     }
-    temp = number;
+    int length = 0;
+    long long temp = number;
+    
     if (temp < 0) {
-        size++;
-        temp *= -1;;
+        length++;
+        temp *= -1;
     }
-    while(temp != 0) {
+    while (temp != 0) {
         temp /= 10;
-        size++;
+        length++;
     }
-    word = mx_strnew(size);
+    result = mx_strnew(length);
     if (number < 0) {
-        word[0] = '-';
+        result[0] = '-';
         number *= -1;
     }
-    word[size - 1] = '\0';
-    while (number != 0 && size >= 0 && word[size] != '-') {
-        word[size - 1] = (number % 10) + '0';
+    result[length--] = '\0';
+    while ((number != 0 && length >= 0) && result[length] != '-') {
+        result[length--] = (number % 10) + '0';
         number /= 10;
     }
-    return word;
+    return result;
+
 }
 
 // int main (void) {

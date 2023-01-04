@@ -39,20 +39,15 @@
 #include "../inc/pathfinder.h"
 #include <stdio.h>
 
-
 int main(int argc, char* argv[]) {
-    //mx_printstr("hello");
     char* filename = argv[1];
-    //mx_printint(1);
     char *path_file = mx_file_to_str(filename);
-    //mx_printint(2);
-    printf("%s", path_file);
-    //mx_printint(3);
-    mx_file_errors(argc, argv, path_file);
-    //nu kak by blyat` nado otkrivat` file, ksush..
-    int islands = mx_return_number_of_islands(argv[1], path_file);
-    mx_printchar('\n');
+    char *copy_path_file = path_file;
+    mx_file_errors(argc, argv, copy_path_file);
+    int islands = mx_return_number_of_islands(argv[1], copy_path_file);
     mx_printint(islands);
+    //mx_lines_check(path_file);
+
 
     return 0;
 }

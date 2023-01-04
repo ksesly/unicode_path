@@ -35,3 +35,4 @@ void mx_file_errors(int argc, char* argv[], char* path_file) {
     mx_filename_error(file, filename);
 }
 
+
