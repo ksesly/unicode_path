@@ -22,13 +22,15 @@ void check_nbr_of_islands(char **names_of_islands, int lines, int islands);
 int mx_get_number_of_islands(char* path_file);
 int mx_return_number_of_islands(char* filename, char* path_file);
 //void mx_lines_check(char* path_file);
-
-
 char** mx_names_of_islands_arr(char *path_file, int islands);
 
 int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands);
-//char **get_path(char *line);
 //int **mx_all_pair_shortest_part(int **matrix, int islands);
+
+//free 
+void mx_del_matrix(int **adjacency_array, int islands);
+void mx_del_array2d(char **arr, int islands);
+
 
 
 
