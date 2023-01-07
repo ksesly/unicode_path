@@ -3,6 +3,7 @@
 #include "../libmx/inc/libmx.h"
 
 #define INFINITY 99999
+#define INT_MAX 2147483647
 #define MX_MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 
@@ -25,7 +26,7 @@ int mx_return_number_of_islands(char* filename, char* path_file);
 char** mx_names_of_islands_arr(char *path_file, int islands);
 
 int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands);
-//int **mx_all_pair_shortest_part(int **matrix, int islands);
+int **mx_all_pair_shortest_part(int **matrix, int islands);
 
 //free 
 void mx_del_matrix(int **adjacency_array, int islands);

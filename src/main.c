@@ -46,13 +46,11 @@
 
 int main(int argc, char* argv[]) {
 
-    char* filename = argv[1];
 
-    char *path_file = mx_file_to_str(filename);
+    char *path_file = mx_file_to_str(argv[1]);
     //char *copy_path_file = path_file;
     
     mx_file_errors(argc, argv, path_file);
-   
    //get the number of islands
     int islands = mx_return_number_of_islands(argv[1], path_file);
     //get the names of islands
@@ -61,12 +59,20 @@ int main(int argc, char* argv[]) {
     int** matrix = mx_create_matrix(path_file, names_of_islands, islands);
     
 
-    // for (int i = 0; i < islands; i++) {
-    //     for (int j = 0; j < islands; j++) {
-    //         printf("%i  ", matrix[i][j]);
-    //     }
-    //     printf("\n");
-    // }
+    for (int i = 0; i < islands; i++) {
+        for (int j = 0; j < islands; j++) {
+            printf("%i  ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    int** path = mx_all_pair_shortest_part(matrix, islands);
+     for (int i = 0; i < islands; i++) {
+        for (int j = 0; j < islands; j++) {
+            printf("%i  ", path[i][j]);
+        }
+        printf("\n");
+    }
 
     //free data
     mx_strdel(&path_file);

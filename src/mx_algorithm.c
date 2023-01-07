@@ -14,17 +14,18 @@ int **mx_all_pair_shortest_part(int **matrix, int islands) {
     for (int k = 0; k < islands; k++) {
         for (int i = 0; i < islands; i++) {
             for (int j = 0 ; j < islands; j++) {
-                if(i != j && dist[i][k] != INFINITY && dist[k][j] != INFINITY) {
+				if(i != j && dist[i][k] != INFINITY && dist[k][j] != INFINITY ){
                     if(dist[i][j] == INFINITY){
                         dist[i][j] = dist[i][k] + dist[k][j];
                     } else {
-                        dist[i][j] = MX_MIN(dist[i][j], dist[i][k] + dist[k][j]);
+						if (dist[i][j] > dist[i][k] + dist[k][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
                     }
                 }
             }
         }
     }
-
+    //dist[0][0] = 0;
     for (int m = 0; m < islands; m++) {
         for (int n = 0; n < islands; n++) {
             if (dist[m][n] == INFINITY) {
@@ -32,6 +33,15 @@ int **mx_all_pair_shortest_part(int **matrix, int islands) {
             }
         }
     }
+    
     return dist;
 }
+
+
+
+
+
+
+
+
 

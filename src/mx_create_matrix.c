@@ -1,7 +1,5 @@
 #include "../inc/pathfinder.h"
 
-
-
 int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands) {
 
     char **file_lines = mx_strsplit(path_file, '\n');
@@ -17,9 +15,9 @@ int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands)
         }
     }
 
-    for (int i = 0; file_lines[i]; i++) {
-        printf("%s\n", file_lines[i]);
-    }
+    // for (int i = 0; file_lines[i]; i++) {
+    //     printf("%s\n", file_lines[i]);
+    // }
 
     for (int i = 1; file_lines[i]; i++) {
 
@@ -52,6 +50,15 @@ int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands)
         matrix[to][from] = mx_atoi(temp[2]);
     }
 
+    // for (int i = 0; i < islands; i++) {
+    //     for (int j = 0; j < islands; j++) {
+    //         mx_printint(matrix[i][j]);
+    //         mx_printchar(' ');
+    //     }
+    //     mx_printchar('\n');
+    // }
+    mx_strdel(file_lines);
+    //suka, a vsego lish nado bylo ochistit` etot file_line chto by ne ebat` sebe mozg 3 chasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     return matrix;
 
 }
