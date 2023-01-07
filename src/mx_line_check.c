@@ -64,4 +64,3 @@ void mx_lines_check(char* path_file) {
 
 }
 
-

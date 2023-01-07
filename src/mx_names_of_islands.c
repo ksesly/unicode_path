@@ -1,48 +1,74 @@
 #include "../inc/pathfinder.h"
 
-char** get_islands(char *str_file, int isl_nbr) {
-
-    char *str = mx_strdup(str_file);
-    int lines_count = 0;
-    char **islands = (char **)malloc((isl_nbr + 1) * sizeof(char *));
-
-    for (int i = 0; i < mx_strlen(str); i++) {
-        if (str[i] == '-' || str[i] == ',' || str[i] == '\n' || mx_isdigit(str[i])) {
-            str[i] = ' ';
-        }
+char** mx_names_of_islands_arr(char *path_file, int islands) {
+    char *buff = mx_strnew(300);
+    int i = 0;
+    while (path_file[i] != '\n') {
+        i++;
     }
-   
-   
-    char *str_no_spaces = mx_del_extra_spaces(str);
-    char **temp = mx_strsplit(str_no_spaces, ' ');
-    while (temp[lines_count]) {
-        lines_count++;
+    char **name_arr = (char**) malloc((islands * sizeof(char*)) + 1);
+    for(int i = 0; i < islands; i++) {
+        name_arr[i] = NULL;
     }
-    
-    check_loop(temp, lines_count);
 
-    int k = 0;
-    for (int i = 0; i < lines_count; i++) {
-        for (int j = 0; j < lines_count; j++) {
-            if (temp[j][0] == ' ' || j == i)
-                continue;
-            if (mx_strcmp(temp[i], temp[j]) == 0)
-                temp[j][0] = ' ';
+
+    int counter = 0;
+    int buff_counter = 0;
+    int flag = 0;
+    for (int i = 0; i < mx_strlen(path_file); i++) {
+        if (path_file[i] != '-' && path_file[i] != ',' && path_file[i] != '\n' && !mx_isdigit(path_file[i])) {
+            buff[buff_counter] = path_file[i];
+            buff_counter++;
         }
-        if(mx_isalpha(temp[i][0])) {
-            islands[k] = mx_strdup(temp[i]);
-            k++;
+        if (path_file[i] == '-') {
+            for (int j = 0; j < counter; j++) {
+                if (mx_strcmp(name_arr[j], mx_strdup(buff))==0) {
+                    flag = 1;
+                    for (int j = 0; j < buff_counter; j++) {
+                        buff[j] = '\0';
+                    }
+                    buff_counter = 0;
+                }
+                
+            }
+            if (flag != 1) {
+                name_arr[counter] = mx_strdup(buff);
+                for (int j = 0; j < buff_counter; j++) {
+                    buff[j] = '\0';
+                }
+                buff_counter = 0;
+                counter++;
+            }
         }
+        if (path_file[i] == ',') {
+            for (int j = 0; j < counter; j++) {
+                if (mx_strcmp(name_arr[j], mx_strdup(buff)) == 0) {
+                    flag = 1;
+                    for (int j = 0; j < buff_counter; j++) {
+                        buff[j] = '\0';
+                    }
+                    buff_counter = 0;
+                }
+            }
+            if (flag != 1) {
+                name_arr[counter] = mx_strdup(buff);
+                for (int j = 0; j < buff_counter; j++) {
+                    buff[j] = '\0';
+                }
+                buff_counter = 0;
+                counter++;
+            }
+        }
+        flag = 0;
     }
-    islands[isl_nbr] = NULL;
+    mx_strdel(&buff);
 
-    check_nbr_of_islands(temp, lines_count, isl_nbr);
-
-    mx_strdel(&str);
-    mx_strdel(&str_no_spaces);
-    mx_del_strarr(&temp);
-
-    return islands;
+    return name_arr;
 }
+
+
+
+
+
 
 

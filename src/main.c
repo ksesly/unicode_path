@@ -43,12 +43,44 @@ int main(int argc, char* argv[]) {
     char* filename = argv[1];
     char *path_file = mx_file_to_str(filename);
     char *copy_path_file = path_file;
+    printf("rg1\n");
     mx_file_errors(argc, argv, copy_path_file);
+   
+
     int islands = mx_return_number_of_islands(argv[1], copy_path_file);
-    mx_printint(islands);
-    //mx_lines_check(path_file);
+    //mx_printint(islands);
 
+    printf("rg2\n");
+    //printf("%s", path_file);
+    //mx_printstr(path_file);
+    //printf("%s", copy_path_file);
 
+    //get the names of islands
+    char **names_of_islands = mx_names_of_islands_arr(path_file, islands);
+    // for (int i = 0; i < islands; i++) {
+    //     for (int j = 0; j < islands; j++) {
+    //         printf("%c ", names_of_islands[i][j]);
+    //     }
+    // }
+    
+    printf("rg3\n");
+    for (int i = 0; i < islands; i++) {
+            for (int j = 0; j < islands; j++) {
+                printf("%c", names_of_islands[i][j]);
+            }
+        }
+    int** matrix = mx_create_matrix(path_file, names_of_islands, islands);
+    printf("rg4\n");
+    for (int i = 0; i < islands; i++) {
+            for (int j = 0; j < islands; j++) {
+                printf("%c", names_of_islands[i][j]);
+            }
+        }
+    for (int i = 0; i < islands; i++) {
+        for (int j = 0; j < islands; j++) {
+            printf("%i ", matrix[i][j]);
+        }
+    }
     return 0;
 }
 

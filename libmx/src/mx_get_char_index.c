@@ -10,6 +10,7 @@ int mx_get_char_index(const char *str, char c) {
     return -1;
 }
 
+
 // int main(void) {
 //     char *array = "Hello";
 //     printf("%i", mx_get_char_index(array, 'e'));

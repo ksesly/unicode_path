@@ -1,4 +1,5 @@
 #include "../inc/pathfinder.h"
+#include "pathfinder.h"
 
 int mx_get_number_of_islands(char* path_file) {
     int length = 0;
@@ -13,7 +14,7 @@ int mx_get_number_of_islands(char* path_file) {
 
     int number_of_islands = mx_atoi(line);
     mx_strdel(&line);
-    mx_strdel(&path_file);
+    //mx_strdel(&path_file);
     return number_of_islands;
 }
 
@@ -25,5 +26,4 @@ int mx_return_number_of_islands(char* filename, char* path_file) {
     close(file);
     return islands;
 }
-
 
