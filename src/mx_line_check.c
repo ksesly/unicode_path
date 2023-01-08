@@ -17,7 +17,7 @@ void mx_lines_check(char* path_file) {
     bool coma = false;
 
     for (int i = counter; path_file[i] != '\0'; i++) {
-        //mx_printint(2);
+        
         if (!mx_isalpha(path_file[i]) && !mx_isdigit(path_file[i]) &&
                                         path_file[i] != ',' &&
                                         path_file[i] != '-' && 
@@ -50,7 +50,8 @@ void mx_lines_check(char* path_file) {
             mx_strdel(&path_file);
             mx_error_line(line);
         }
-        
+        mx_to_many_bridges(path_file);
+        //mx_printint(2);
         if (path_file[i] == '\n') {
             coma = false;
             if (defis_counter != 1 || coma_counter != 1) {
@@ -63,6 +64,6 @@ void mx_lines_check(char* path_file) {
             defis_counter = 0;
         }
     }
-
+    
 }
 

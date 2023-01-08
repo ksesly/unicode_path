@@ -48,6 +48,7 @@ char** mx_names_of_islands_arr(char* path_file, int islands) {
     mx_invalid_islands(counter, islands);
     mx_same_islands(path_file);
     
+    
     mx_strdel(&buff);
     
     return name_arr;

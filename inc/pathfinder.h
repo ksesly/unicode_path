@@ -21,6 +21,7 @@ void mx_invalid_islands(int counter, int islands);
 void mx_print_invalide_island(void);
 void mx_same_islands(char* path_file);
 void mx_duplicate_bridges(void);
+void mx_to_many_bridges(char* path_file);
 //void mx_dup_error(char **file_lines, int lines_count);
 //void check_nbr_of_islands(char **names_of_islands, int lines, int islands);
 

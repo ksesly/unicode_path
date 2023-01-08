@@ -63,12 +63,27 @@ void mx_duplicate_bridges(void) {
     exit(1);
 }
 
-void mx_to_many_bridges(char** temp) {
-    if (mx_atoi(temp[2]) >= __INT_MAX__) {
+void mx_to_many_bridges(char* path_file) {
+    char* buf = mx_strdup(path_file);
+    for (int i = 0; buf[i] != '\0'; i++) {
+        if (buf[i] == ',' || buf[i] == '\n') {
+            buf[i] = '-';
+        }
+    }
+    int sum = 0;
+    int all_names_count = mx_count_words(buf,'-');
+    char** isl = mx_strsplit(buf,'-');
+    for (int i = 2; i < all_names_count; i += 2) 
+    {
+        sum += mx_atoi(isl[i]);
+    }
+    if (sum >= 2147483647) {
         mx_printerr("error: sum of bridges lengths is too big\n");
         exit(1);
     }
 }
+
+
 
 
 
