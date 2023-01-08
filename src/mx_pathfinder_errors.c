@@ -23,6 +23,20 @@ void mx_first_line_checker(char* path_file) {
     }
 }
 
+void mx_print_invalide_island(void) {
+    mx_printerr("error: invalide number of islands\n");
+    exit(1);
+}
+
+void mx_invalid_islands(int counter, int islands) {
+    if (islands < 2) {
+        mx_print_invalide_island();
+    }
+    if (counter != islands) {
+        mx_print_invalide_island();
+    }
+}
+
 void mx_to_many_bridges(char** temp) {
     if (mx_atoi(temp[2]) >= __INT_MAX__) {
         mx_printerr("error: sum of bridges lengths is too big\n");
