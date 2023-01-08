@@ -42,7 +42,11 @@ int **mx_create_matrix(char* path_file, char** name_of_islands_arr, int islands)
                 to = i;
             }
         }
-    
+
+        // if (matrix[from][to] != INFINITY) {
+        //     !!!
+        // }
+
         matrix[from][to] = mx_atoi(temp[2]);
         matrix[to][from] = mx_atoi(temp[2]);
 

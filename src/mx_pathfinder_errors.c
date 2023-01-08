@@ -37,6 +37,27 @@ void mx_invalid_islands(int counter, int islands) {
     }
 }
 
+void mx_same_islands(char* path_file) {
+
+    char* buf = mx_strdup(path_file);
+
+    for (int i = 0; buf[i] != '\0'; i++) {
+        if (buf[i] == ',' || buf[i] == '\n') {
+            buf[i] = '-';
+        }
+    }
+        
+    int all_names_count = mx_count_words(buf,'-');
+    char** isl = mx_strsplit(buf,'-');
+    int line = 2;
+    for (int i = 1; i < all_names_count; i +=3) {
+        if (!mx_strcmp(isl[i + 1], isl[i])) {
+            mx_error_line(line);
+        }
+        line++;
+    }
+}
+
 void mx_to_many_bridges(char** temp) {
     if (mx_atoi(temp[2]) >= __INT_MAX__) {
         mx_printerr("error: sum of bridges lengths is too big\n");
