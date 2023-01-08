@@ -30,9 +30,10 @@ void mx_file_errors(int argc, char* argv[], char* path_file) {
     mx_argument_line_error(argc);
     int file = open(argv[1], O_RDONLY);
     char* filename = argv[1];
+    mx_filename_error(file, filename);
     if (path_file == NULL)
         mx_null_file_error(file, filename, path_file);
-    mx_filename_error(file, filename);
+    
 }
 
 
