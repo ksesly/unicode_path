@@ -33,7 +33,6 @@ void mx_file_errors(int argc, char* argv[], char* path_file) {
     mx_filename_error(file, filename);
     if (path_file == NULL)
         mx_null_file_error(file, filename, path_file);
-    
 }
 
 

@@ -47,10 +47,11 @@ void mx_print_output(char** names_of_islands, int* route, int distance, int** ma
     mx_printstr("\n");
     mx_delimeter_line();
 }
-
+#include <stdio.h>
 void mx_print_pathfinder(int** matrix, int islands, char** names_of_islands) {
     
     int** path = mx_all_pair_shortest_part(matrix, islands);
+
     int distance;
     int* route =(int *)malloc(sizeof(int) * (islands + 1));
     
@@ -59,6 +60,7 @@ void mx_print_pathfinder(int** matrix, int islands, char** names_of_islands) {
             distance = 1;
             route[0] = j;
             route[1] = i;
+
             mx_find_route(islands, distance, route, matrix, path, names_of_islands);
         }
     }

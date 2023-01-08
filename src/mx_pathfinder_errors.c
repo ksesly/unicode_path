@@ -2,7 +2,6 @@
 
 void mx_firstline_error(void) {
     mx_printerr("error: line 1 is not valid\n");
-    //close(file);
     exit(1);
 }
 
@@ -56,6 +55,7 @@ void mx_same_islands(char* path_file) {
         }
         line++;
     }
+    free(isl);
 }
 
 void mx_duplicate_bridges(void) {
@@ -81,6 +81,7 @@ void mx_to_many_bridges(char* path_file) {
         mx_printerr("error: sum of bridges lengths is too big\n");
         exit(1);
     }
+    free(isl);
 }
 
 

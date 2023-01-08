@@ -49,10 +49,8 @@ int main(int argc, char* argv[]) {
 
     //get the names of islands
     char** names_of_islands = mx_names_of_islands_arr(path_file, islands);
-
-    //create the matrix 
+   //create the matrix 
     int** matrix = mx_create_matrix(path_file, names_of_islands, islands);
-
     //print
     mx_print_pathfinder(matrix, islands, names_of_islands);
 
