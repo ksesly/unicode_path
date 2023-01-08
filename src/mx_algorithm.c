@@ -1,8 +1,8 @@
 #include "../inc/pathfinder.h"
 
-int **mx_all_pair_shortest_part(int **matrix, int islands) {
+int **mx_all_pair_shortest_part(int** matrix, int islands) {
 
-    int **dist = (int **)malloc(islands * sizeof(int));
+    int** dist = (int **)malloc(islands * sizeof(int));
     for (int i = 0; i < islands; i++) {
         dist[i] = (int *)malloc(islands * sizeof(int));
         for (int j = 0; j < islands; j++) {
@@ -25,7 +25,6 @@ int **mx_all_pair_shortest_part(int **matrix, int islands) {
             }
         }
     }
-    //dist[0][0] = 0;
     for (int m = 0; m < islands; m++) {
         for (int n = 0; n < islands; n++) {
             if (dist[m][n] == INFINITY) {

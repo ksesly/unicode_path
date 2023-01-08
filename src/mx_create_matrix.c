@@ -1,10 +1,11 @@
 #include "../inc/pathfinder.h"
 
-int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands) {
+//poka chto eto bylo chto to ochen` slognoe, no my spravilis`
+int **mx_create_matrix(char* path_file, char** name_of_islands_arr, int islands) {
 
-    char **file_lines = mx_strsplit(path_file, '\n');
-    int **matrix = (int **) malloc(islands * sizeof(int *));
+    char** file_lines = mx_strsplit(path_file, '\n');
 
+    int** matrix = (int **) malloc(islands * sizeof(int *));
     for (int i = 0; i < islands; i++) {
         matrix[i] = (int *)malloc(islands * sizeof(int));
     }
@@ -15,13 +16,9 @@ int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands)
         }
     }
 
-    // for (int i = 0; file_lines[i]; i++) {
-    //     printf("%s\n", file_lines[i]);
-    // }
-
     for (int i = 1; file_lines[i]; i++) {
 
-        char **temp = (char **)malloc(4 * sizeof(char *));
+        char** temp = (char **)malloc(4 * sizeof(char *));
         for (int i = 0; i <= 3; i++) {
             temp[i] = NULL;
         }
@@ -48,6 +45,8 @@ int **mx_create_matrix(char* path_file, char **name_of_islands_arr, int islands)
     
         matrix[from][to] = mx_atoi(temp[2]);
         matrix[to][from] = mx_atoi(temp[2]);
+
+        mx_strdel(temp);
     }
 
     // for (int i = 0; i < islands; i++) {

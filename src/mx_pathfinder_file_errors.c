@@ -17,7 +17,7 @@ void mx_filename_error(int file, char* filename) {
     }
 }
 
-void mx_null_file_error(int file, char *filename, char *path_file) {
+void mx_null_file_error(int file, char* filename, char* path_file) {
     mx_strdel(&path_file);
     mx_printerr("error: file ");
     mx_printerr(filename);

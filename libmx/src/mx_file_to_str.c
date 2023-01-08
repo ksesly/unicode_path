@@ -22,24 +22,6 @@ char *mx_file_to_str(const char *file) {
         return NULL;
     read(temp, temp_word, size);
     return temp_word;
-    
-   /*
-    int temp = open(file, O_RDONLY);
-
-    if (temp > 0) {
-        int size = 0;
-        char buf;
-        while (read(temp, &buf, 1)) 
-            size++;
-        if (!size) return NULL;
-        int temp1 = open(file, O_RDONLY);        
-        char *str = mx_strnew(size);
-        read(temp1, str, size);
-        close(temp1);
-        return str;
-    }
-    return NULL;
-    */
 }
 
 

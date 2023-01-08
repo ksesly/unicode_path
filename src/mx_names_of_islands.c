@@ -1,17 +1,17 @@
 #include "../inc/pathfinder.h"
 
-char** mx_names_of_islands_arr(char *path_file, int islands) {
+char** mx_names_of_islands_arr(char* path_file, int islands) {
 
-    char *buff = mx_strnew(300);
+    char* buff = mx_strnew(200);
     int i = 0;
     while (path_file[i] != '\n') {
         i++;
     }
-    char **name_arr = (char**) malloc((islands * sizeof(char*)) + 1);
+    
+    char** name_arr = (char **)malloc((islands * sizeof(char *)) + 1);
     for(int i = 0; i < islands; i++) {
         name_arr[i] = NULL;
     }
-
 
     bool temp = false;
     int counter = 0;

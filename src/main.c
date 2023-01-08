@@ -37,42 +37,24 @@
 // •error: sum of bridges lengths is too bigif the sum of the lengths of all bridges inthe file exceeds INT_MAX
 
 #include "../inc/pathfinder.h"
-#include <stdio.h>
-
-
-
-
-
 
 int main(int argc, char* argv[]) {
 
-
-    char *path_file = mx_file_to_str(argv[1]);
-    //char *copy_path_file = path_file;
-    
+    char* path_file = mx_file_to_str(argv[1]);    
     mx_file_errors(argc, argv, path_file);
-   //get the number of islands
+    void mx_lines_check(char* path_file);
+
+    //get the number of islands
     int islands = mx_return_number_of_islands(argv[1], path_file);
+
     //get the names of islands
-    char **names_of_islands = mx_names_of_islands_arr(path_file, islands);
+    char** names_of_islands = mx_names_of_islands_arr(path_file, islands);
+
     //create the matrix 
     int** matrix = mx_create_matrix(path_file, names_of_islands, islands);
-    
 
-    for (int i = 0; i < islands; i++) {
-        for (int j = 0; j < islands; j++) {
-            printf("%i  ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-
-    int** path = mx_all_pair_shortest_part(matrix, islands);
-     for (int i = 0; i < islands; i++) {
-        for (int j = 0; j < islands; j++) {
-            printf("%i  ", path[i][j]);
-        }
-        printf("\n");
-    }
+    //print
+    mx_print_pathfinder(matrix, islands, names_of_islands);
 
     //free data
     mx_strdel(&path_file);

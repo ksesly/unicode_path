@@ -27,6 +27,7 @@ char **mx_strsplit(const char *s, char c) {
     arr[i] = NULL;
     return arr;
 }
+
 /*int main (void) {
     char *s = "**Good bye,**Mr.Anderson.****";
     char **s2 = mx_strsplit(s, '*');
