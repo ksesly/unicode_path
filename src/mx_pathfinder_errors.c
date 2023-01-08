@@ -7,10 +7,10 @@ void mx_firstline_error(void) {
 }
 
 void mx_error_line(int str) {
-    mx_printerr("error: line");
+    mx_printerr("error: line ");
     char* line = mx_itoa(str);
-    mx_printerr(line + 1);
-    //mx_strdel(&line);
+    mx_printerr(line);
+    mx_strdel(&line);
     mx_printerr(" is not valid\n");
     exit(1);
 }
