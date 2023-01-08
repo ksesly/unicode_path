@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 
     char* path_file = mx_file_to_str(argv[1]);    
     mx_file_errors(argc, argv, path_file);
-    void mx_lines_check(char* path_file);
+    mx_lines_check(path_file);
 
     //get the number of islands
     int islands = mx_return_number_of_islands(argv[1], path_file);

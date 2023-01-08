@@ -1,6 +1,7 @@
 #include "../inc/pathfinder.h"
 
 void mx_lines_check(char* path_file) {
+    mx_first_line_checker(path_file);
     int counter = 0;
     for (int i = 0; path_file[i] != '\0'; i++) {
         if (!mx_isdigit(path_file[i])) {

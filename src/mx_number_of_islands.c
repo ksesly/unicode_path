@@ -25,7 +25,7 @@ int mx_return_number_of_islands(char* filename, char* path_file) {
     int file = open(filename, O_RDONLY);
     int islands = mx_get_number_of_islands(path_file);
     if (islands <= 0) 
-        mx_firstline_error(file);
+        mx_firstline_error();
     close(file);
     
     return islands;
