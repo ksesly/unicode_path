@@ -2,7 +2,7 @@
 
 int **mx_all_pair_shortest_part(int** matrix, int islands) {
 
-    int** dist = (int **)malloc(islands * sizeof(int));
+    int** dist = (int **)malloc(islands * sizeof(int *));
     for (int i = 0; i < islands; i++) {
         dist[i] = (int *)malloc(islands * sizeof(int));
         for (int j = 0; j < islands; j++) {
