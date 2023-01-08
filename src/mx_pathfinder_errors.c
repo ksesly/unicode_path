@@ -58,6 +58,11 @@ void mx_same_islands(char* path_file) {
     }
 }
 
+void mx_duplicate_bridges(void) {
+    mx_printerr("error: duplicate bridges\n");
+    exit(1);
+}
+
 void mx_to_many_bridges(char** temp) {
     if (mx_atoi(temp[2]) >= __INT_MAX__) {
         mx_printerr("error: sum of bridges lengths is too big\n");

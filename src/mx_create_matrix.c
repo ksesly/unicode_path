@@ -43,9 +43,9 @@ int **mx_create_matrix(char* path_file, char** name_of_islands_arr, int islands)
             }
         }
 
-        // if (matrix[from][to] != INFINITY) {
-        //     !!!
-        // }
+        if (matrix[from][to] != INFINITY) {
+            mx_duplicate_bridges();
+        }
 
         matrix[from][to] = mx_atoi(temp[2]);
         matrix[to][from] = mx_atoi(temp[2]);
